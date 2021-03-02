@@ -20,9 +20,7 @@ function App() {
         setCalcs(cArr)
         setcControl(cControl + 1)
       }
-     
     }
-    console.log('add ran', calcs, cControl)
   }
 
   function handleCaclRemoval() {
@@ -30,7 +28,6 @@ function App() {
     cArr[cControl].isVisible = false
     setCalcs(cArr)
     setcControl(cControl - 1)
-    console.log('add rem', calcs, cControl)
   }
   
   return (
@@ -38,12 +35,11 @@ function App() {
     {
     calcs.map(e => {
       if(e.isVisible) {
-        return <CalculationForm/>
+        return <CalculationForm handleDeletion={handleCaclRemoval}/>
       }
     })
     }
     <button onClick={handleNewCalculatorAction}>Add</button>
-    <button onClick={handleCaclRemoval}>Del</button>
     </>
     
   );
